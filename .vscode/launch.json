@@ -1,0 +1,58 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Backend: uvicorn (dev)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "uvicorn",
+            "args": ["main:app", "--host", "0.0.0.0", "--port", "8006", "--reload"],
+            "cwd": "${workspaceFolder}/backend",
+            "python": "${workspaceFolder}/backend/.venv/bin/python",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/backend"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Backend: run.py",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/backend/run.py",
+            "cwd": "${workspaceFolder}/backend",
+            "python": "${workspaceFolder}/backend/.venv/bin/python",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/backend"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Backend: pytest",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["-xvs", "${file}"],
+            "cwd": "${workspaceFolder}/backend",
+            "python": "${workspaceFolder}/backend/.venv/bin/python",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/backend",
+                "DATABASE_URL": "sqlite:///./test.db"
+            },
+            "justMyCode": true
+        },
+        {
+            "name": "Backend: pytest (all)",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "pytest",
+            "args": ["-xvs", "tests/"],
+            "cwd": "${workspaceFolder}/backend",
+            "python": "${workspaceFolder}/backend/.venv/bin/python",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}/backend",
+                "DATABASE_URL": "sqlite:///./test.db"
+            },
+            "justMyCode": true
+        }
+    ]
+}
